@@ -1,0 +1,29 @@
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<h2>You're Solving : {{detail.name}} </h2>
+
+<div>
+    <p>
+        {% if detail.description %}
+
+        <p>{{detail.difficulty}}</p>
+
+        <div>
+
+        {{detail.description}}
+
+        </div>
+        
+        {% else %}
+        
+        <p> No description</p>
+
+        {% endif %}
+    </p>
+</div>
+
+
+{% endblock %}
+
