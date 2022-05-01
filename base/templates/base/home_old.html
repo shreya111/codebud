@@ -1,0 +1,24 @@
+{% include 'navbar.html' %}
+
+
+{% block content %}
+
+
+<h1>Home Page</h1>
+
+<h3>Try solving these problems!</h3>
+
+
+
+
+{% for p in problems %}
+<ul>
+    <li>
+       {{p.prob_id}} : 
+        <a href="{% url 'problem_detail' p.prob_id %}">{{p.name}} </a>
+        
+    </li>
+</ul>
+{% endfor %}
+
+{% endblock content %}

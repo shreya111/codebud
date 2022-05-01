@@ -29,6 +29,12 @@ class Problem(models.Model):
     def __str__(self):
         return (str(self.prob_id) + '.  ' + self.name)
 
+class Topic(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
 
 class Submission(models.Model):
     submittedAt = models.DateTimeField(auto_now=True)

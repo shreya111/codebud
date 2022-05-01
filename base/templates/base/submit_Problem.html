@@ -1,6 +1,28 @@
-<h3>Try the problem!</h3>
+{% extends 'main.html' %}
 
-<div class="form-group">
-    <label for="comment">Editor:</label>
-    <textarea class="form-control" rows="10" id="Editor"></textarea>
-  </div>
+
+    {% block content %}
+    <main class="layout layout--3">
+      <div class="container">
+        <!-- Topics Start -->
+        {% include 'base/topics_component.html' %}
+        
+        <!-- Topics End -->
+
+       
+        <!-- Activities Start -->
+        <h3>Try the problem!</h3>
+
+        <div class="form-group">
+            <label for="comment">Editor:</label>
+            <textarea class="form-control" rows="10" id="Editor"></textarea>
+        </div>
+        <!-- Activities End -->
+      </div>
+    </main>
+   
+    {% endblock %}
+
+
+
+

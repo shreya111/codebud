@@ -3,6 +3,7 @@ from django.http import HttpResponseBadRequest
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Problem
+from .models import Topic, User
 from django.contrib.auth.decorators import login_required
 
 
@@ -29,6 +30,16 @@ def submit_Problem(request, py):
         'submitcode':submitcode
     }
     return render(request, 'base/submit_Problem.html', context)
+
+def topicsPage(request):
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    topics = Topic.objects.filter(name__icontains=q)
+    return render(request, 'base/topics_component.html', {'topics': topics})
+
+def userProfile(request, pk):
+    user = User.objects.get(id=pk)
+    context = {'user': user}
+    return render(request, 'base/profile.html', context)
 
 
 
