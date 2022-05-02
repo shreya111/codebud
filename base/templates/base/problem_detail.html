@@ -1,35 +1,28 @@
 {% extends 'main.html' %}
-
 {% block content %}
 
-<h2>You're looking at : {{detail.name}} </h2>
-
-<div>
-    <p>
-        {% if detail.description %}
-
-        <p>{{detail.difficulty}}</p>
-
-        <div>
-
-        {{detail.description}}
-
-        </div>
-        
-        {% else %}
-        
+<main class="layout">
+    <div class="container">    
+    <h2>You're looking at : {{detail.name}} </h2>
+    </div> 
+    <div class="jumbotron">
+        <div class="container layout">
+          <h1 class="display-4"> </h1>
+          <p class="lead">{% if detail.description %}
+            {{detail.description}}</p>
+      </div>
+    </div>
+    <div class="container layout">
+        {% else %} 
         <p> No description</p>
-
         {% endif %}
-    </p>
-</div>
-
-<p>
-    
-   
-    <a href="{% url 'submit_Problem' detail.prob_id %}">Try this Problem! </a>
-    
-</p>
+    </div>
+    <div class="container layout">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'submit_Problem' detail.prob_id %}" role="button">Try this Problem!</a>
+        </p>
+    </div>
+</main>
 
 {% endblock %}
 

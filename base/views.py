@@ -34,7 +34,7 @@ def submit_Problem(request, py):
 def topicsPage(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
     topics = Topic.objects.filter(name__icontains=q)
-    return render(request, 'base/topics_component.html', {'topics': topics})
+    return render(request, 'base/topic.html', {'topics': topics})
 
 def userProfile(request, pk):
     user = User.objects.get(id=pk)
