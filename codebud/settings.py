@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'base.apps.BaseConfig',
     'user_authen.apps.UserAuthenConfig',
+    'OJ.apps.OjConfig',
 ]
 
 MIDDLEWARE = [

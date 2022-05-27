@@ -10,32 +10,45 @@
       <div class="container">
         <label for="comment"></label>
       <div class="input-group layout mb-3">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Language</button>
-          <div class="dropdown-menu">
+        <div class="input-group">
+          <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Language</button> -->
+          <!-- <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something else here</a>
             <div role="separator" class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Separated link</a>
-          </div>
+          </div> -->
+          <label for ="na">Select Language</label>
+          <select name = 'type' id="na">
+             <option value="C">C</option>
+             <option value="C++">C++</option>
+             <option value="Java">Java</option>
+             <option value="Python">Python</option>
+          </select>
         </div>
-        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+        <!-- <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
       </div>
       </div>
         <div class="container layout">
           <label for="comment"></label>
           <div class="form-group-fluid">
-            <textarea class="form-control rounded-0" rows="20" cols="60" id="Editor"></textarea>
+            <!-- <textarea class="form-control rounded-0" rows="20" cols="60" id="Editor"></textarea> -->
           </div>
         </div>
         <div class="container layout">
           <label for="comment"></label>
-          <p class="lead">
-              <a class="btn btn-primary btn-lg" href="#" role="button">Submit</a>
-          </p>
+          <form action="{% url 'submit' submitcode.prob_id %}" name = "code-form" method="post">
+            {% csrf_token %}
+            <textarea rows="20" cols="60" name="code">//Type your code here...</textarea>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>          
       </div>
     </main>
+
+
+    
    
     {% endblock %}
 

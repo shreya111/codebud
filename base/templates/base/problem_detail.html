@@ -8,13 +8,15 @@
     <div class="jumbotron">
         <div class="container layout">
           <h1 class="display-4"> </h1>
-          <p class="lead">{% if detail.description %}
-            {{detail.description}}</p>
+          <body class="lead">{% if detail.description %}
+            <p>{{detail.description}}
+            </p>
+            </body>
       </div>
     </div>
     <div class="container layout">
         {% else %} 
-        <p> No description</p>
+        <p> Description coming soon!</p>
         {% endif %}
     </div>
     <div class="container layout">
@@ -23,6 +25,32 @@
         </p>
     </div>
 </main>
+
+<!-- <table id="submissions">
+    <thead>
+        <tr>
+            <th>Verdict</th>
+            <th>Problem</th>
+            <th>Submitted At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for res in result %}
+        <tr>
+            <td>{{res.verdict}}</td>
+            <td><a href="{% url 'problem_detail' res.problem.id %}">{{res.problem.code}}</a></td>
+            <td>{{res.submittedAt}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table> -->
+
+<ul>
+    {% for res in result %}
+        <li>{{ res.problem.code }} | {{ res.verdict }}</li>
+    {% endfor %}
+</ul>
+
 
 {% endblock %}
 

@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+
+    {% block content %}     
+
+    <form>
+    </form>
+    <table id="submissions">
+        <thead>
+            <tr>
+                <th>Verdict</th>
+                <th>Problem</th>
+                <th>Submitted At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for res in result %}
+            <tr>
+                <td><a href="{% url 'problem_detail' res.problem.prob_id %}">{{res.problem}}</a></td>
+                <td>{{res.verdict}}</td>
+                <td>{{res.submittedAt}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- <ul>
+    {% for res in result %}
+        <li>{{ res.problem.code }} | {{ res.verdict }}</li>
+    {% endfor %}
+    </ul> -->
+</body>
+
+
+{% endblock %}

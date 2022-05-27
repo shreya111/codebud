@@ -24,7 +24,9 @@ class Problem(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     #timelimit
     #memorylimit
-    testcases = models.CharField(max_length=100)
+    # test_input = models.CharField(max_length=100)
+
+    # test_output = models.CharField(max_length=100)
 
     def __str__(self):
         return (str(self.prob_id) + '.  ' + self.name)
@@ -35,11 +37,39 @@ class Topic(models.Model):
     def __str__(self):
         return self.name
 
-
 class Submission(models.Model):
+    class Verdict(models.TextChoices):
+        Success = "SUCCESS"
+        COMPILATION_ERROR = "COMPILATION_ERROR"
+        Wrong_Output = "Wrong Output"
+        Time_Limit_Exceeded = "TIME LIMIT EXCEEDED"
+        Runtime_Error = "RUNTIME ERROR"
+
     submittedAt = models.DateTimeField(auto_now=True)
 
     problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
+
+    verdict = models.CharField(
+        max_length=20,
+        choices=Verdict.choices
+    )
+
+    def __str__(self):
+        return (str(self.problem))
+
+    # def __str__(self):
+    #     return self.problem.code + "_" + self.verdict
+
+class TestCase(models.Model):
+    input = models.CharField(max_length=500)
+    output = models.CharField(max_length=500)
+    problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.problem) 
+   
+
+
 
 
 
